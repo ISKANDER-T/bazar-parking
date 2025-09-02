@@ -21,6 +21,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/auth/register": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Register User */
+        post: operations["register_user_api_v1_auth_register_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/auth/verify": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Verify User */
+        post: operations["verify_user_api_v1_auth_verify_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/auth/login": {
         parameters: {
             query?: never;
@@ -72,6 +106,74 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/paynet/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Paynet Endpoint */
+        post: operations["paynet_endpoint_api_v1_paynet__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/local_transactions/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Local Transaction */
+        post: operations["create_local_transaction_api_v1_local_transactions_create_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/local_transactions/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Local Transactions */
+        get: operations["get_local_transactions_api_v1_local_transactions_list_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/local_transactions/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel Local Transaction */
+        post: operations["cancel_local_transaction_api_v1_local_transactions_cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/users/me": {
         parameters: {
             query?: never;
@@ -81,83 +183,17 @@ export interface paths {
         };
         /** Get Me */
         get: operations["get_me_api_v1_users_me_get"];
-        put?: never;
+        /** Update Me */
+        put: operations["update_me_api_v1_users_me_put"];
         post?: never;
-        delete?: never;
+        /** Delete Me */
+        delete: operations["delete_me_api_v1_users_me_delete"];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/api/v1/persons": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Create Person */
-        post: operations["create_person_api_v1_persons_post"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/persons/get_by_id/{person_id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get Person By Id */
-        get: operations["get_person_by_id_api_v1_persons_get_by_id__person_id__get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/persons/get_all": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get Persons */
-        get: operations["get_persons_api_v1_persons_get_all_get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/persons/get_excel": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get Persons Excel */
-        get: operations["get_persons_excel_api_v1_persons_get_excel_get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/persons/delete/{person_id}": {
+    "/api/v1/users/me/phone-number": {
         parameters: {
             query?: never;
             header?: never;
@@ -167,48 +203,14 @@ export interface paths {
         get?: never;
         put?: never;
         post?: never;
-        /** Delete Person */
-        delete: operations["delete_person_api_v1_persons_delete__person_id__delete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/persons/update/{person_id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        /** Update Person */
-        put: operations["update_person_api_v1_persons_update__person_id__put"];
-        post?: never;
         delete?: never;
         options?: never;
         head?: never;
-        patch?: never;
+        /** Change Phone Number */
+        patch: operations["change_phone_number_api_v1_users_me_phone_number_patch"];
         trace?: never;
     };
-    "/api/v1/persons/search/{search}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Search Persons */
-        get: operations["search_persons_api_v1_persons_search__search__get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/departments": {
+    "/api/v1/users/me/phone-number/verify": {
         parameters: {
             query?: never;
             header?: never;
@@ -217,32 +219,15 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create Department */
-        post: operations["create_department_api_v1_departments_post"];
+        /** Verify Phone Number */
+        post: operations["verify_phone_number_api_v1_users_me_phone_number_verify_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/api/v1/departments/get_all": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get Departments */
-        get: operations["get_departments_api_v1_departments_get_all_get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/roles": {
+    "/api/v1/cameras/create": {
         parameters: {
             query?: never;
             header?: never;
@@ -251,25 +236,285 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create Role */
-        post: operations["create_role_api_v1_roles_post"];
+        /** Create Camera */
+        post: operations["create_camera_api_v1_cameras_create_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/api/v1/roles/get_all": {
+    "/api/v1/cameras/list": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** Get Roles */
-        get: operations["get_roles_api_v1_roles_get_all_get"];
+        /** Get Cameras */
+        get: operations["get_cameras_api_v1_cameras_list_get"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cameras/{camera_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update Camera */
+        put: operations["update_camera_api_v1_cameras__camera_id__put"];
+        post?: never;
+        /** Delete Camera */
+        delete: operations["delete_camera_api_v1_cameras__camera_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cars/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Car */
+        post: operations["create_car_api_v1_cars_create_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cars/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Cars */
+        get: operations["get_cars_api_v1_cars_list_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/cars/{plate_number}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Car By Plate Number */
+        get: operations["get_car_by_plate_number_api_v1_cars__plate_number__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/attendances/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Attendances */
+        get: operations["get_attendances_api_v1_attendances_list_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/users/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Users */
+        get: operations["get_users_api_v1_superadmin_users_list_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/users/{user_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get User */
+        get: operations["get_user_api_v1_superadmin_users__user_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/posts/{user_id}/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get User Posts */
+        get: operations["get_user_posts_api_v1_superadmin_posts__user_id__list_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/posts/{user_id}/{post_id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Delete User Post */
+        delete: operations["delete_user_post_api_v1_superadmin_posts__user_id___post_id___delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/tiers/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Tiers */
+        get: operations["get_tiers_api_v1_superadmin_tiers_list_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/tiers/{tier_name}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Tier */
+        get: operations["get_tier_api_v1_superadmin_tiers__tier_name__get"];
+        /** Update Tier */
+        put: operations["update_tier_api_v1_superadmin_tiers__tier_name__put"];
+        post?: never;
+        /** Delete Tier */
+        delete: operations["delete_tier_api_v1_superadmin_tiers__tier_name__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/tiers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Tier */
+        post: operations["create_tier_api_v1_superadmin_tiers_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/rate-limits/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Rate Limits */
+        get: operations["get_rate_limits_api_v1_superadmin_rate_limits_list_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/rate-limits/{tier_name}/{rate_limit_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Rate Limit By Id */
+        get: operations["get_rate_limit_by_id_api_v1_superadmin_rate_limits__tier_name___rate_limit_id__get"];
+        /** Update Rate Limit */
+        put: operations["update_rate_limit_api_v1_superadmin_rate_limits__tier_name___rate_limit_id__put"];
+        post?: never;
+        /** Delete Rate Limit */
+        delete: operations["delete_rate_limit_api_v1_superadmin_rate_limits__tier_name___rate_limit_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/superadmin/rate-limits/{tier_name}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Rate Limit */
+        post: operations["create_rate_limit_api_v1_superadmin_rate_limits__tier_name___post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -280,35 +525,82 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        /** Body_create_person_api_v1_persons_post */
-        Body_create_person_api_v1_persons_post: {
-            /** First Name */
-            first_name: string;
-            /** Last Name */
-            last_name: string;
-            /** Department Id */
-            department_id: number;
+        /** AttendanceRead */
+        AttendanceRead: {
+            /** Image Url */
+            image_url: string;
+            /** Car Id */
+            car_id: number;
             /**
-             * Image
-             * Format: binary
+             * Date
+             * Format: date-time
              */
-            image: string;
+            date: string;
+            /** Is Counted */
+            is_counted: boolean;
+            /** Plate Number */
+            plate_number: string;
+            /** Id */
+            id: number;
         };
-        /** DataResponse[DepartmentRead] */
-        DataResponse_DepartmentRead_: {
-            data: components["schemas"]["DepartmentRead"];
+        /** CameraCreate */
+        CameraCreate: {
+            /** Name */
+            name: string;
+            /** Path */
+            path: string;
         };
-        /** DataResponse[PersonFullRead] */
-        DataResponse_PersonFullRead_: {
-            data: components["schemas"]["PersonFullRead"];
+        /** CameraRead */
+        CameraRead: {
+            /** Name */
+            name: string;
+            /** Path */
+            path: string;
+            /** Id */
+            id: number;
         };
-        /** DataResponse[PersonRead] */
-        DataResponse_PersonRead_: {
-            data: components["schemas"]["PersonRead"];
+        /** CameraUpdate */
+        CameraUpdate: {
+            /** Name */
+            name?: string | null;
+            /** Path */
+            path?: string | null;
         };
-        /** DataResponse[RoleRead] */
-        DataResponse_RoleRead_: {
-            data: components["schemas"]["RoleRead"];
+        /** CarCreate */
+        CarCreate: {
+            /** Plate Number */
+            plate_number: string;
+            /** Balance */
+            balance?: number | null;
+        };
+        /** CarRead */
+        CarRead: {
+            /** Plate Number */
+            plate_number: string;
+            /** Id */
+            id: number;
+            /** Balance */
+            balance: number;
+        };
+        /** DataResponse[CameraRead] */
+        DataResponse_CameraRead_: {
+            data: components["schemas"]["CameraRead"];
+        };
+        /** DataResponse[CarRead] */
+        DataResponse_CarRead_: {
+            data: components["schemas"]["CarRead"];
+        };
+        /** DataResponse[LocalTransactionRead] */
+        DataResponse_LocalTransactionRead_: {
+            data: components["schemas"]["LocalTransactionRead"];
+        };
+        /** DataResponse[RateLimitRead] */
+        DataResponse_RateLimitRead_: {
+            data: components["schemas"]["RateLimitRead"];
+        };
+        /** DataResponse[TierRead] */
+        DataResponse_TierRead_: {
+            data: components["schemas"]["TierRead"];
         };
         /** DataResponse[TokenInfo] */
         DataResponse_TokenInfo_: {
@@ -318,56 +610,65 @@ export interface components {
         DataResponse_UserRead_: {
             data: components["schemas"]["UserRead"];
         };
-        /** DataResponse[int] */
-        DataResponse_int_: {
+        /** DataResponse[dict] */
+        DataResponse_dict_: {
             /** Data */
-            data: number;
-        };
-        /** DepartmentCreate */
-        DepartmentCreate: {
-            /** Name */
-            name: string;
-            /** Role Id */
-            role_id: number;
-        };
-        /** DepartmentRead */
-        DepartmentRead: {
-            /** Name */
-            name: string;
-            /** Id */
-            id: number;
-            /** Role Id */
-            role_id: number;
-        };
-        /** DepartmentReadWithCount */
-        DepartmentReadWithCount: {
-            /** Name */
-            name: string;
-            /** Id */
-            id: number;
-            /** Role Id */
-            role_id: number;
-            /** Count */
-            count: number;
+            data: {
+                [key: string]: unknown;
+            };
         };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
-        /** ListResponse[PersonFullRead] */
-        ListResponse_PersonFullRead_: {
+        /** ListResponse[CameraRead] */
+        ListResponse_CameraRead_: {
             /** Data */
-            data: components["schemas"]["PersonFullRead"][];
+            data: components["schemas"]["CameraRead"][];
             /** Total */
             total: number;
         };
-        /** ListResponse[RoleRead] */
-        ListResponse_RoleRead_: {
+        /** ListResponse[LocalTransactionRead] */
+        ListResponse_LocalTransactionRead_: {
             /** Data */
-            data: components["schemas"]["RoleRead"][];
+            data: components["schemas"]["LocalTransactionRead"][];
             /** Total */
             total: number;
+        };
+        /** ListResponse[RateLimitRead] */
+        ListResponse_RateLimitRead_: {
+            /** Data */
+            data: components["schemas"]["RateLimitRead"][];
+            /** Total */
+            total: number;
+        };
+        /** ListResponse[TierRead] */
+        ListResponse_TierRead_: {
+            /** Data */
+            data: components["schemas"]["TierRead"][];
+            /** Total */
+            total: number;
+        };
+        /** LocalTransactionCreate */
+        LocalTransactionCreate: {
+            /** Amount */
+            amount: number;
+            /** Car Plate Number */
+            car_plate_number: string;
+        };
+        /** LocalTransactionRead */
+        LocalTransactionRead: {
+            /** Id */
+            id: number;
+            /** Amount */
+            amount: number;
+            /** Car Plate Number */
+            car_plate_number: string;
+            /** User Id */
+            user_id: number;
+            /** Created At */
+            created_at?: string | null;
         };
         /** LoginViaPhone */
         LoginViaPhone: {
@@ -376,16 +677,28 @@ export interface components {
             /** Password */
             password: string;
         };
-        /** PaginatedListResponse[DepartmentReadWithCount] */
-        PaginatedListResponse_DepartmentReadWithCount_: {
+        /** PaginatedListResponse[AttendanceRead] */
+        PaginatedListResponse_AttendanceRead_: {
             /** Data */
-            data: components["schemas"]["DepartmentReadWithCount"][];
+            data: components["schemas"]["AttendanceRead"][];
             pagination: components["schemas"]["Pagination"];
         };
-        /** PaginatedListResponse[PersonRead] */
-        PaginatedListResponse_PersonRead_: {
+        /** PaginatedListResponse[CarRead] */
+        PaginatedListResponse_CarRead_: {
             /** Data */
-            data: components["schemas"]["PersonRead"][];
+            data: components["schemas"]["CarRead"][];
+            pagination: components["schemas"]["Pagination"];
+        };
+        /** PaginatedListResponse[PostRead] */
+        PaginatedListResponse_PostRead_: {
+            /** Data */
+            data: components["schemas"]["PostRead"][];
+            pagination: components["schemas"]["Pagination"];
+        };
+        /** PaginatedListResponse[UserRead] */
+        PaginatedListResponse_UserRead_: {
+            /** Data */
+            data: components["schemas"]["UserRead"][];
             pagination: components["schemas"]["Pagination"];
         };
         /** Pagination */
@@ -399,59 +712,131 @@ export interface components {
             /** Total Pages */
             total_pages?: number | null;
         };
-        /** PersonFullRead */
-        PersonFullRead: {
-            /** Id */
-            id: number;
-            /** First Name */
-            first_name: string;
-            /** Last Name */
-            last_name: string;
-            /** Image Url */
-            image_url: string;
-            department: components["schemas"]["DepartmentRead"];
-            role: components["schemas"]["RoleRead"];
+        /** PhoneNumber */
+        PhoneNumber: {
+            /** Phone Number */
+            phone_number: string;
         };
-        /** PersonRead */
-        PersonRead: {
-            /** First Name */
-            first_name: string;
-            /** Last Name */
-            last_name: string;
-            /** Image Url */
-            image_url: string;
-            /** Department Id */
-            department_id: number;
-            /** Id */
-            id: number;
-        };
-        /** PersonUpdate */
-        PersonUpdate: {
-            /** First Name */
-            first_name?: string | null;
-            /** Last Name */
-            last_name?: string | null;
-            /** Image Url */
+        /**
+         * PostRead
+         * @description Схема чтения поста.
+         */
+        PostRead: {
+            /**
+             * Title
+             * @example This is my post
+             */
+            title: string;
+            /**
+             * Text
+             * @example This is the content of my post.
+             */
+            text: string;
+            /**
+             * Image Url
+             * @example https://www.postimageurl.com
+             */
             image_url?: string | null;
-            /** Department Id */
-            department_id?: number | null;
+            /** User Id */
+            user_id: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Id */
+            id: number;
+        };
+        /** RateLimitCreate */
+        RateLimitCreate: {
+            /**
+             * Path
+             * @example users
+             */
+            path: string;
+            /**
+             * Limit
+             * @example 5
+             */
+            limit: number;
+            /**
+             * Period
+             * @example 60
+             */
+            period: number;
+        };
+        /** RateLimitRead */
+        RateLimitRead: {
+            /**
+             * Path
+             * @example users
+             */
+            path: string;
+            /**
+             * Limit
+             * @example 5
+             */
+            limit: number;
+            /**
+             * Period
+             * @example 60
+             */
+            period: number;
+            /** Tier Id */
+            tier_id: number;
+            /** Name */
+            name: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Updated At */
+            updated_at?: string | null;
+            /** Id */
+            id: number;
+        };
+        /** RateLimitUpdate */
+        RateLimitUpdate: {
+            /** Path */
+            path?: string | null;
+            /** Limit */
+            limit?: number | null;
+            /** Period */
+            period?: number | null;
         };
         /** RefreshToken */
         RefreshToken: {
             /** Refresh Token */
             refresh_token?: string | null;
         };
-        /** RoleCreate */
-        RoleCreate: {
-            /** Name */
+        /** TierCreate */
+        TierCreate: {
+            /**
+             * Name
+             * @example free
+             */
             name: string;
         };
-        /** RoleRead */
-        RoleRead: {
-            /** Name */
+        /** TierRead */
+        TierRead: {
+            /**
+             * Name
+             * @example free
+             */
             name: string;
             /** Id */
             id: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
+        /** TierUpdate */
+        TierUpdate: {
+            /** Name */
+            name?: string | null;
         };
         /** TokenInfo */
         TokenInfo: {
@@ -464,6 +849,20 @@ export interface components {
              * @default Bearer
              */
             token_type: string;
+        };
+        /**
+         * UserCreate
+         * @description Схема создания пользователя.
+         */
+        UserCreate: {
+            /** Name */
+            name: string;
+            /** Email */
+            email?: string | null;
+            /** Phone Number */
+            phone_number: string;
+            /** Password */
+            password: string;
         };
         /** UserRead */
         UserRead: {
@@ -495,6 +894,14 @@ export interface components {
             /** Id */
             id: number;
         };
+        /**
+         * UserUpdate
+         * @description Схема обновления данных пользователя.
+         */
+        UserUpdate: {
+            /** Name */
+            name?: string | null;
+        };
         /** ValidationError */
         ValidationError: {
             /** Location */
@@ -503,6 +910,13 @@ export interface components {
             msg: string;
             /** Error Type */
             type: string;
+        };
+        /** VerifyPhoneNumber */
+        VerifyPhoneNumber: {
+            /** Phone Number */
+            phone_number: string;
+            /** Code */
+            code: string;
         };
     };
     responses: never;
@@ -529,6 +943,72 @@ export interface operations {
                 };
                 content: {
                     "application/json": unknown;
+                };
+            };
+        };
+    };
+    register_user_api_v1_auth_register_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UserCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_dict_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    verify_user_api_v1_auth_verify_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["VerifyPhoneNumber"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_TokenInfo_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
@@ -630,6 +1110,122 @@ export interface operations {
             };
         };
     };
+    paynet_endpoint_api_v1_paynet__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    create_local_transaction_api_v1_local_transactions_create_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LocalTransactionCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_LocalTransactionRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_local_transactions_api_v1_local_transactions_list_get: {
+        parameters: {
+            query?: {
+                date_from?: string | null;
+                date_to?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ListResponse_LocalTransactionRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cancel_local_transaction_api_v1_local_transactions_cancel_post: {
+        parameters: {
+            query: {
+                local_transaction_id: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_LocalTransactionRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_me_api_v1_users_me_get: {
         parameters: {
             query?: never;
@@ -650,7 +1246,7 @@ export interface operations {
             };
         };
     };
-    create_person_api_v1_persons_post: {
+    update_me_api_v1_users_me_put: {
         parameters: {
             query?: never;
             header?: never;
@@ -659,17 +1255,17 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "multipart/form-data": components["schemas"]["Body_create_person_api_v1_persons_post"];
+                "application/json": components["schemas"]["UserUpdate"];
             };
         };
         responses: {
             /** @description Successful Response */
-            201: {
+            200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["DataResponse_PersonRead_"];
+                    "application/json": components["schemas"]["DataResponse_UserRead_"];
                 };
             };
             /** @description Validation Error */
@@ -683,13 +1279,128 @@ export interface operations {
             };
         };
     };
-    get_person_by_id_api_v1_persons_get_by_id__person_id__get: {
+    delete_me_api_v1_users_me_delete: {
         parameters: {
             query?: never;
             header?: never;
-            path: {
-                person_id: number;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
+        };
+    };
+    change_phone_number_api_v1_users_me_phone_number_patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PhoneNumber"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_dict_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    verify_phone_number_api_v1_users_me_phone_number_verify_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["VerifyPhoneNumber"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_dict_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_camera_api_v1_cameras_create_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CameraCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_CameraRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_cameras_api_v1_cameras_list_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
             cookie?: never;
         };
         requestBody?: never;
@@ -700,7 +1411,33 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["DataResponse_PersonFullRead_"];
+                    "application/json": components["schemas"]["ListResponse_CameraRead_"];
+                };
+            };
+        };
+    };
+    update_camera_api_v1_cameras__camera_id__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                camera_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CameraUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_CameraRead_"];
                 };
             };
             /** @description Validation Error */
@@ -714,10 +1451,71 @@ export interface operations {
             };
         };
     };
-    get_persons_api_v1_persons_get_all_get: {
+    delete_camera_api_v1_cameras__camera_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                camera_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_car_api_v1_cars_create_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CarCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_CarRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_cars_api_v1_cars_list_get: {
         parameters: {
             query?: {
-                department_id?: number | null;
                 page?: number;
                 page_size?: number;
             };
@@ -733,7 +1531,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["PaginatedListResponse_PersonRead_"];
+                    "application/json": components["schemas"]["PaginatedListResponse_CarRead_"];
                 };
             };
             /** @description Validation Error */
@@ -747,7 +1545,197 @@ export interface operations {
             };
         };
     };
-    get_persons_excel_api_v1_persons_get_excel_get: {
+    get_car_by_plate_number_api_v1_cars__plate_number__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                plate_number: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_CarRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_attendances_api_v1_attendances_list_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedListResponse_AttendanceRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_users_api_v1_superadmin_users_list_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedListResponse_UserRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_user_api_v1_superadmin_users__user_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_UserRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_user_posts_api_v1_superadmin_posts__user_id__list_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                user_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedListResponse_PostRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_user_post_api_v1_superadmin_posts__user_id___post_id___delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: number;
+                post_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_tiers_api_v1_superadmin_tiers_list_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -758,6 +1746,65 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ListResponse_TierRead_"];
+                };
+            };
+        };
+    };
+    get_tier_api_v1_superadmin_tiers__tier_name__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                tier_name: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_TierRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_tier_api_v1_superadmin_tiers__tier_name__put: {
+        parameters: {
+            query: {
+                name: string;
+            };
+            header?: never;
+            path: {
+                tier_name: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TierUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -765,27 +1812,34 @@ export interface operations {
                     "application/json": unknown;
                 };
             };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
         };
     };
-    delete_person_api_v1_persons_delete__person_id__delete: {
+    delete_tier_api_v1_superadmin_tiers__tier_name__delete: {
         parameters: {
             query?: never;
             header?: never;
             path: {
-                person_id: number;
+                tier_name: string;
             };
             cookie?: never;
         };
         requestBody?: never;
         responses: {
             /** @description Successful Response */
-            200: {
+            204: {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": components["schemas"]["DataResponse_int_"];
-                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {
@@ -798,73 +1852,7 @@ export interface operations {
             };
         };
     };
-    update_person_api_v1_persons_update__person_id__put: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                person_id: number;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["PersonUpdate"];
-            };
-        };
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["DataResponse_PersonRead_"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    search_persons_api_v1_persons_search__search__get: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                search: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ListResponse_PersonFullRead_"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    create_department_api_v1_departments_post: {
+    create_tier_api_v1_superadmin_tiers_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -873,7 +1861,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["DepartmentCreate"];
+                "application/json": components["schemas"]["TierCreate"];
             };
         };
         responses: {
@@ -883,7 +1871,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["DataResponse_DepartmentRead_"];
+                    "application/json": components["schemas"]["DataResponse_TierRead_"];
                 };
             };
             /** @description Validation Error */
@@ -897,13 +1885,9 @@ export interface operations {
             };
         };
     };
-    get_departments_api_v1_departments_get_all_get: {
+    get_rate_limits_api_v1_superadmin_rate_limits_list_get: {
         parameters: {
-            query?: {
-                role_id?: number | null;
-                page?: number;
-                page_size?: number;
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -916,7 +1900,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["PaginatedListResponse_DepartmentReadWithCount_"];
+                    "application/json": components["schemas"]["ListResponse_RateLimitRead_"];
+                };
+            };
+        };
+    };
+    get_rate_limit_by_id_api_v1_superadmin_rate_limits__tier_name___rate_limit_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rate_limit_id: number;
+                tier_name: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_RateLimitRead_"];
                 };
             };
             /** @description Validation Error */
@@ -930,16 +1937,84 @@ export interface operations {
             };
         };
     };
-    create_role_api_v1_roles_post: {
+    update_rate_limit_api_v1_superadmin_rate_limits__tier_name___rate_limit_id__put: {
         parameters: {
             query?: never;
             header?: never;
-            path?: never;
+            path: {
+                rate_limit_id: number;
+                tier_name: string;
+            };
             cookie?: never;
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["RoleCreate"];
+                "application/json": components["schemas"]["RateLimitUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DataResponse_RateLimitRead_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_rate_limit_api_v1_superadmin_rate_limits__tier_name___rate_limit_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rate_limit_id: number;
+                tier_name: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_rate_limit_api_v1_superadmin_rate_limits__tier_name___post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                tier_name: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RateLimitCreate"];
             };
         };
         responses: {
@@ -949,7 +2024,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["DataResponse_RoleRead_"];
+                    "application/json": components["schemas"]["DataResponse_RateLimitRead_"];
                 };
             };
             /** @description Validation Error */
@@ -959,26 +2034,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    get_roles_api_v1_roles_get_all_get: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ListResponse_RoleRead_"];
                 };
             };
         };

@@ -1,82 +1,56 @@
-import { Button } from "@/shared/ui/kit/button";
-import {
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-  Form,
-} from "@/shared/ui/kit/form";
-import { Input } from "@/shared/ui/kit/input";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useLogin } from "../model/use-login";
+import { UiButton } from "@/shared/ui"
+import { Form, type FormProps, Input } from "antd"
+import type { FC } from "react"
+import { useLogin } from "../model/use-login"
+import { ApiSchemas } from "@/shared/api/schema"
 
-const loginSchema = z.object({
-  phone_number: z
-    .string({
-      required_error: "Номер телефона обязателен",
-    })
-    .regex(/^\d{9,15}$/, "Неверный формат номера телефона"),
-  password: z
-    .string({
-      required_error: "Пароль обязателен",
-    })
-    .min(4, "Пароль должен быть не менее 4 символов"),
-});
+type FormType = ApiSchemas["LoginViaPhone"]
 
-export function LoginForm() {
-  const form = useForm({
-    resolver: zodResolver(loginSchema),
-  });
-
-  const { errorMessage, isPending, login } = useLogin();
-
-  const onSubmit = form.handleSubmit(login);
+export const LoginForm: FC = () => {
+  const [form] = Form.useForm<FormType>()
+  const { login, isPending } = useLogin()
+  const onFinish: FormProps<FormType>["onFinish"] = (values) => login(values)
 
   return (
-    <Form {...form}>
-      <form className="flex flex-col gap-4" onSubmit={onSubmit}>
-        <FormField
-          control={form.control}
-          name="phone_number"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Телефон</FormLabel>
-              <FormControl>
-                <Input
-                  autoComplete={"off"}
-                  placeholder="998911234567"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Пароль</FormLabel>
-              <FormControl>
-                <Input placeholder="******" type="password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {errorMessage && (
-          <p className="text-destructive text-sm">{errorMessage}</p>
-        )}
-
-        <Button disabled={isPending} type="submit">
+    <Form
+      name={"login"}
+      form={form}
+      onFinish={onFinish}
+      size={"large"}
+      variant={"filled"}
+      layout={"vertical"}
+      labelCol={{
+        style: {
+          display: "none",
+        },
+      }}
+    >
+      <Form.Item<FormType>
+        label="Телефон"
+        name="phone_number"
+        rules={[{ type: "string" }, { required: true }]}
+      >
+        <Input placeholder={"Укажите номер телефона"} />
+      </Form.Item>
+      <Form.Item<FormType>
+        label="Пароль"
+        name="password"
+        rules={[{ required: true }]}
+      >
+        <Input.Password placeholder={"Введите пароль"} />
+      </Form.Item>
+      <Form.Item>
+        <UiButton
+          loading={isPending}
+          disabled={isPending}
+          block={true}
+          type={"primary"}
+          htmlType={"submit"}
+        >
           Войти
-        </Button>
-      </form>
+        </UiButton>
+      </Form.Item>
     </Form>
-  );
+  )
 }
+
