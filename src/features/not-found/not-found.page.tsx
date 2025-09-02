@@ -6,7 +6,7 @@ interface NotFoundProps {
 	data?: string | object
 }
 
-export const NotFoundPage: FC<NotFoundProps> = ({ data }) => {
+const NotFoundPage: FC<NotFoundProps> = ({ data }) => {
 	const navigate = useNavigate()
 
 	return (
@@ -32,3 +32,5 @@ export const NotFoundPage: FC<NotFoundProps> = ({ data }) => {
 		</Flex>
 	)
 }
+
+export const Component = NotFoundPage

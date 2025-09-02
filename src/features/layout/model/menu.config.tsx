@@ -1,5 +1,7 @@
 import {
 	HomeOutlined,
+	UsergroupAddOutlined,
+	VideoCameraOutlined,
 } from "@ant-design/icons"
 import type { MenuProps } from "antd"
 
@@ -16,6 +18,16 @@ export const menuData: MenuItem[] = [
 		label: "Главная",
 		icon: <HomeOutlined />,
 	},
+	{
+		key: "/users",
+		label: "Пользователи",
+		icon: <UsergroupAddOutlined />
+	},
+	{
+		key: "/camera",
+		label: "Камера",
+		icon: <VideoCameraOutlined />
+	}
 ].map((el) =>
 	el?.type === "divider"
 		? ({

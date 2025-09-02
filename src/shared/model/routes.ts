@@ -3,6 +3,9 @@ import "react-router-dom";
 export const ROUTES = {
   HOME: "/",
   LOGIN: "/login",
+  USERS: "/users",
+  CAMERA: "/camera",
+  NOT_FOUND: "*",
 } as const;
 
 export type PathParams = {

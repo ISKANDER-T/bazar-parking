@@ -25,6 +25,9 @@ const MainContent: FC<{ children: ReactNode }> = ({ children }) => {
 				vertical={true}
 				flex={1}
 				gap={20}
+				style={{
+					padding: "0px 24px"
+				}}
 			>
 				{children}
 			</Flex>
