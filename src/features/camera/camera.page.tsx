@@ -1,19 +1,14 @@
-import { Button, Card, Flex, Table, TableProps } from "antd"
+import { Card, Flex, Table, TableProps } from "antd"
 import { useCameraList } from "./model/use-camera-list"
 import { ApiSchemas } from "@/shared/api/schema"
-import {
-  EditTwoTone,
-  EyeTwoTone,
-} from "@ant-design/icons"
-import { useState } from "react"
-import { Title, UiButton } from "@/shared/ui"
+import { Title, UiAddButton, UiDeleteButton, UiEditButton } from "@/shared/ui"
 import { CameraForm } from "./ui/camera-form"
+import { useCameraDelete } from "./model/use-camera-delete"
 
 export const CameraPage = () => {
   const { data, isLoading } = useCameraList()
-  const [formIsOpen, setFormIsOpen] = useState(false)
-  const handleCloseForm = () => setFormIsOpen(false)
-  const handleOpenForm = () => setFormIsOpen(true)
+  const { cameraDelete } = useCameraDelete()
+
   const columns: TableProps<ApiSchemas["CameraRead"]>["columns"] = [
     {
       key: "name",
@@ -28,26 +23,30 @@ export const CameraPage = () => {
     {
       key: "action",
       title: "Функции",
-      render: () => (
+      render: (_, res) => (
         <Flex gap={10}>
-          <Button type="link" icon={<EyeTwoTone style={{ fontSize: 18 }} />} />
-          <Button type="link" icon={<EditTwoTone style={{ fontSize: 18 }} />} />
+          <UiEditButton params={res} />
+          <UiDeleteButton
+            data={res.name}
+            onConfirm={() => cameraDelete(res.id!)}
+          />
         </Flex>
       )
     }
   ]
 
-  return <Card styles={{ body: { padding: "20px 0px" } }} title={<Flex justify="space-between">
-    <Title level={4}>Камера</Title>{formIsOpen ? <UiButton type="primary" onClick={handleCloseForm}>Назад</UiButton> : <UiButton type="primary" onClick={handleOpenForm}>Добавить камеру</UiButton>}</Flex>}>
-    {
-      formIsOpen ? <Flex justify="center"><CameraForm /></Flex> : <Table
+  return <>
+    <Card styles={{ body: { padding: "20px 0px" } }} title={<Flex justify="space-between">
+      <Title level={4}>Камера</Title><UiAddButton text="добавить камеру" /></Flex>}>
+      <Table
         pagination={false}
         size="large"
         dataSource={data?.data}
         columns={columns}
         loading={isLoading} />
-    }
-  </Card>
+    </Card>
+    <CameraForm />
+  </>
 }
 
 export const Component = CameraPage

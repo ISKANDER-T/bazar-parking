@@ -1,3 +1,6 @@
-export * from "./UiButton/UiButton"
+export * from "./UiButton/UiAddButton"
+export * from "./UiButton/UiAddButton"
+export * from "./UiButton/UiDeleteButton"
+export * from "./UiButton/UiEditButton"
 // export * from "./UiHeadButton/UiHeadButton"
 // export * from "./UIHeadProfileButton/UIHeadProfileButton"

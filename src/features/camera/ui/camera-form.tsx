@@ -1,48 +1,60 @@
 import { ApiSchemas } from "@/shared/api/schema"
-import { Flex, Form, FormProps, Input } from "antd"
+import { Form, FormProps, Input } from "antd"
 import { useCameraCreate } from "../model/use-camera-create"
-import { UiButton } from "@/shared/ui"
-
+import { UiDrawer } from "@/shared/ui"
+import { useFormDevtoolsStore } from "@/shared/store"
+import { useCameraEdit } from "../model/use-camera-edit"
+import { useEffect } from "react"
 type FormType = ApiSchemas["CameraCreate"]
 
 export const CameraForm = () => {
   const [form] = Form.useForm<FormType>()
-  const { cameraCreate, isPending } = useCameraCreate()
-  const onFinish: FormProps<FormType>["onFinish"] = (values) => cameraCreate(values)
+  const { cameraCreate, isPending: cameraCreateIsPending, isSuccess: cameraCreateIsSuccess } = useCameraCreate()
+  const { cameraEdit, isPending: cameraEditIsPending, isSuccess: cameraEditIsSuccess } = useCameraEdit()
 
-  return <Form
-    name={"login"}
+  const params = useFormDevtoolsStore((state) => state.getParams<ApiSchemas["CameraRead"]>())
+  const onFinish: FormProps<FormType>["onFinish"] = (values) => {
+    if (params) {
+      cameraEdit({
+        ...values,
+        id: params.id
+      })
+      return
+    }
+    cameraCreate(values)
+  }
+
+  useEffect(() => {
+    form.setFieldsValue({ ...params })
+  }, [form, params])
+
+  return <UiDrawer
     form={form}
-    onFinish={onFinish}
-    size={"large"}
-    variant={"filled"}
-    layout={"vertical"}
+    loading={cameraCreateIsPending || cameraEditIsPending}
+    success={cameraCreateIsSuccess || cameraEditIsSuccess}
   >
-    <Form.Item<FormType>
-      label="Название камеры"
-      name="name"
-      rules={[{ type: "string" }, { required: true }]}
+    <Form
+      name={"login"}
+      form={form}
+      onFinish={onFinish}
+      size={"large"}
+      variant={"filled"}
+      layout={"vertical"}
     >
-      <Input placeholder={"Укажите название камеры"} />
-    </Form.Item>
-    <Form.Item<FormType>
-      label="Путь"
-      name="path"
-      rules={[{ required: true }]}
-    >
-      <Input placeholder={"Укажите путь"} />
-    </Form.Item>
-    <Form.Item>
-      <Flex justify="flex-end">
-        <UiButton
-          loading={isPending}
-          disabled={isPending}
-          type={"primary"}
-          htmlType={"submit"}
-        >
-          Добавить
-        </UiButton>
-      </Flex>
-    </Form.Item>
-  </Form>
+      <Form.Item<FormType>
+        label="Название камеры"
+        name="name"
+        rules={[{ type: "string" }, { required: true }]}
+      >
+        <Input placeholder={"Укажите название камеры"} />
+      </Form.Item>
+      <Form.Item<FormType>
+        label="Путь"
+        name="path"
+        rules={[{ required: true }]}
+      >
+        <Input placeholder={"Укажите путь"} />
+      </Form.Item>
+    </Form>
+  </UiDrawer>
 }

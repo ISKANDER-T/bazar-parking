@@ -20,5 +20,5 @@ export const useCameraCreate = () => {
 
   const cameraCreate = (data: ApiSchemas["CameraCreate"]) => cameraCreateMutation.mutate({ body: data })
 
-  return { cameraCreate, isPending: cameraCreateMutation.isPending }
+  return { cameraCreate, isPending: cameraCreateMutation.isPending, isSuccess: cameraCreateMutation.isSuccess }
 }
